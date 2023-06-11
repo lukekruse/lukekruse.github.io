@@ -41,6 +41,10 @@
             second card #2, etc., and finally the bottom card was labeled #100.
             <i>Note: The "bottom card" refers to the card in contact with the table 
                 when the deck is placed facedown onto the table.</i>
+            Then the deck was shuffled using one of the investigated shuffling methods, namely, "side-shuffling" or riffle shuffling.
+
+            In later studies, the effect of deck size was also investigated: the total number of cards in the deck was decrease from 100 to 80, 60, or 40.
+
         </section>
         <section>
             <h2>Analysis</h2>
@@ -84,7 +88,16 @@
             \[
             S = -\sum_{i=1}^{N_{\text{outcomes}}}p_i \log_2 p_i.
             \]
-
+            This phenomena is visualized in Figure 1 wherein contours of constant $S$ in a three outcome system are shaded. In this figure, $p_3$ is implicit upon specification of $p_1$ and $p_2$. 
+            <figure>
+                <img class="image" src="Images/trinomialEntropy.svg">
+                <figcaption>
+                    Figure 1. Shannon Entropy for a System with 3 Possible Outcomes. The maximum, occurs, as expected when $p_1 = p_2 = p_3 = \frac{1}{3}$
+                </figcaption>
+            </figure>
+            In the context of shuffling a deck of cards, $S$ was used to assess the probability mass function of the location of a card within the deck after $x$ shuffles.
+            Say, for instance, we know a certain card is on the bottom of the deck. When we shuffle the deck once, we can usually make a decent guess as to where the card is in the new arrangment of cards. That is, the probability that the card is in one location, say in the bottom 10-20 cards is greater than it suddenly having jumped to the top of the deck. 
+            This non-uniform probability mass function is precisely what is captured by $S$ and as we continue to shuffle, we intuitively "lose track" of where a particular card went, and would be equally likely to find it at any location within the deck.
         </section>
     </body>
 </html>
