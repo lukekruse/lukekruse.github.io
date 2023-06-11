@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" >
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Homepage</title>
+        <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+        <script>
+            MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']]
+                },
+                svg: {
+                    fontCache:'global'
+                }
+            };
+        </script>
+
+    </head>
+    <body>
+        <header class="shuffle-header">
+            <nav class="nav main-nav">
+                <ul>
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="https://google.com" target="_blank">Google</a></li>
+            </ul>  
+            </nav>
+            <h1 class="section-header">Card Shuffling</h1>
+        </header>
+        <section>
+            <h2>Motivation</h2>
+        </section>
+        <section>
+            <h2>Methods</h2>
+            One hundred Magic: The Gathering cards were "single-sleeved" with a
+            set of <a href="https://www.dragonshield.com/webshop/us/solid-color-sleeves/70-dragon-shield-matte-black.html" target="_blank">Dragonshield Matte Black sleeves.</a>
+            Each sleeve was then given a label from 1 to 100 corresponding and 
+            the deck was arranged so that the top card was labelled #1, the 
+            second card #2, etc., and finally the bottom card was labeled #100.
+            <i>Note: The "bottom card" refers to the card in contact with the table 
+                when the deck is placed facedown onto the table.</i>
+        </section>
+        <section>
+            <h2>Analysis</h2>
+            The goal of this exercise was to assess how many shuffles it takes
+            to "sufficiently randomize" a deck of cards. 
+            Unfortunately, "sufficiently randomized" is not an easily quantifiable
+            metric.
+            One way this was assessed here, was by exploiting the <em>Shannon Entropy</em>. 
+            The Shannon Entropy can be described as "how little information do I have about a situation."
+            Mathematically, the Shannon Entropy, $S$, can be described via,
+            \[
+            S \propto - \sum_{i=1}^{N_{\text{outcomes}}}p_i \log p_i
+            \]
+            where $p_i$ is the probability of outcome $i$.
+            In a classic example of a coin flip, one observes that the Shannon Entropy is maximized when a coin is fair, that is the probability of heads is equal to that of tails as follows. 
+            In a coin flip, there are two possible outcomes, so $S$ becomes,
+            \[
+            S = -k p_i \log p_i + -k(1-p_i)\log (1-p_i).
+            \]
+            where k is a positive constant.
+            To find the value of p_i that maximizes $S$, take the derivative with respect to $p_i$ and set it equal to zero,
+            \[
+            \frac{d S}{d p_i} = -p_i \frac{1}{p_i} - \log p_i (1) - 
+                (1-p_i)\frac{-1}{1-p_i} + \log (1-p_i) = 0
+            \]
+            Simplifying,
+            \[
+            \log \frac{p_i}{1-pi} = 0   
+            \]
+            \[
+            p_i = 1 - p_i
+            \] 
+            \[
+            p_i = \frac{1}{2}
+            \]
+            Then we can find a value for $k$ such that the maximal value of $S$ is $1$.
+            \[
+            S(p_i=0.5) = 1 \implies k\log{2} = 1 \implies k = \frac{1}{\log 2}
+            \]
+            so for the case of two outcomes, with the indicated maximal value for $S$ and applying the change of base formula,
+            \[
+            S = -\sum_{i=1}^{N_{\text{outcomes}}}p_i \log_2 p_i.
+            \]
+
+        </section>
+    </body>
+</html>

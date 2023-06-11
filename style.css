@@ -6,6 +6,62 @@
     color: #777;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.nav ul {
+    margin: 0;
+}
+
+.nav li {
+    display: inline;
+}
+
+.nav a {
+    display: inline-block;
+    padding: .5em;
+    color: white;
+    text-decoration: none;
+}
+
+
+.main-nav {
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: lighter;
+    border-bottom: 1px solid rgba(255, 255, 255, .3)
+}
+
+.main-nav li {
+    padding: 0 5%; 
+}
+
+.nav a:hover {
+    background-color: rgba(255, 255, 255, .3)
+}
+
 h1 {
       color: green;
 }
+
+.section-header {
+    text-align:center;
+    font-size: 3.0em;
+}
+
+.main-header {
+    background-color: rgba(0, 0, 0);
+    background-size: cover;
+    padding-bottom: 50px;
+}
+
+.shuffle-header {
+    /*background-image: url("Images/theWave.jpeg");*/
+    background-color: rgba(0, 0, 0);
+    background-size: cover;
+    padding-bottom: 50px;
+}
+
+
