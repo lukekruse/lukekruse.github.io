@@ -191,7 +191,7 @@ class Analyze:
         plt.show()
 
     #--------------------------------------------------------------------------- 
-    def plotMultipleDistributions(self, pos = 50, shuffles = [1, 2,3,4,5], 
+    def plotMultipleDistributions(self, pos = 50, shuffles = [1,2,3,4,5], 
         autoBinning = False, d = 1):
         data = {}
         for deck in self.decks:
