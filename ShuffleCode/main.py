@@ -191,7 +191,7 @@ class Analyze:
         plt.show()
 
     #--------------------------------------------------------------------------- 
-    def plotMultipleDistributions(self, pos = 50, shuffles = [1,2,3,4,5], 
+    def plotMultipleDistributions(self, pos = 1, shuffles = [1,2,3,4,5], 
         autoBinning = False, d = 1):
         data = {}
         for deck in self.decks:
@@ -208,7 +208,9 @@ class Analyze:
                 except KeyError:
                     pass
                     #data[shuffle] = tmp[pos][shuffle]
-
+        
+        
+        xs, ys = [], []
         for i, shuffle in enumerate(data.keys()):
             if not autoBinning:
                 # Manual Binning
@@ -217,22 +219,44 @@ class Analyze:
                 x = [i*d for i in range(1, int( 100/d) + 1)]
                 pdx, _ = np.histogram(data[shuffle], bins = bins, density = True)
                 y = pdx*d #+ i/2
-                plt.plot(x, y, label = f'{shuffle} Shuffles')
+                #plt.plot(x, y, label = f'{shuffle} Shuffles')
+                xs.append(x)
+                ys.append(y)
             else:
                 # Auto binning
                 pdx, bins = np.histogram(data[shuffle], density = True)
                 d = bins[1] - bins[0]
                 x = [xi + d for xi in bins[:-1]]
                 y = pdx*d #+ i/4
-                print(shuffle, np.sum(y))
-                plt.plot(x, y, label = f'{shuffle} Shuffles')
-
-        plt.plot([1, 100], [0.01, 0.01], 'r--', label='Equally Probable')
-        plt.legend()
+                #print(shuffle, np.sum(y))
+                #plt.plot(x, y, label = f'{shuffle} Shuffles')
+                xs.append(x)
+                ys.append(y)
+       
         
-        plt.xlabel('Position within deck')
-        plt.ylabel(f'Likelihood to find a card originally at position {pos} at a new position')
-        plt.xlim(1, 100)
+        #xs.append([1, 100])
+        #ys.append([0.01, 0.01])
+        #xs.reverse()
+        #ys.reverse()
+
+        plt.rcParams['patch.linewidth'] = 0.8
+        plt.rcParams['figure.figsize'] = (6,6)
+
+        fig, ax = plt.subplots(1,1)
+        for i in range(len(xs)):
+            x = xs[i]
+            y = np.array(ys[i]) + (len(xs) - i)/100
+            color = ((i+1)/len(xs),(i+1)/len(xs),(i+1)/len(xs))
+            ax.fill_between(x, y, facecolor=color, edgecolor='black', 
+                    label=f'Shuffle: {shuffles[i]}')
+            
+        leg = ax.legend(loc=(1.04, 0.25))
+        leg.get_frame().set_linewidth(0.0)
+        ax.set_xlabel('Position within deck')
+        ax.set_xlim(1, 100)
+        ax.set_ylim(0)
+        ax.set_yticklabels([])
+        plt.savefig(f'ProbabilityRedistributionPos{pos}.svg', bbox_inches="tight")
         #plt.ylim(0, 1)
 
 
@@ -293,11 +317,14 @@ if __name__ == '__main__':
 
     analysis = Analyze(decks = decks)
     #analysis.plotDistribution(option = 'cut')
-    analysis.plotDistribution(option = 'interlacing')
+    #analysis.plotDistribution(option = 'interlacing')
     #analysis.plotDistribution(option = 'nextPos')
     #analysis.plotEntropy(positions = [1,2, 78,80])
     #analysis.plotEntropy()
-    #analysis.plotMultipleDistributions(d=1)
+    analysis.plotMultipleDistributions(d=1, 
+        pos = 1,
+        shuffles = [1,2,3,4,5,6,7,8,9,10]
+        )
 
     '''
     deck = Deck(deckType = 'model', shuffles = 500)

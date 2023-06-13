@@ -69,6 +69,14 @@ html, body {
 figcaption {
     text-align: center;
 }
+.horizontal-container {
+  align-items: center; 
+  float: left;
+}
+.horizontal-image {
+  float: left;
+  padding: 5px;  
+}
 
 
 h1 {
