@@ -87,11 +87,13 @@
             \]
             so for the case of two outcomes, with the indicated maximal value for $S$ and applying the change of base formula,
             \[
+            \boxed{
             S = -\sum_{i=1}^{N_{\text{outcomes}}}p_i \log_2 p_i.
+            }
             \]
             </p>
             <p>
-            In the general case, we can solve for the relationship between the probabilities by optimizing $S$ subject to the constraint that the sum of the probabilities is 1.
+            In the general case of N possible outcomes, we can solve for the relationship between the probabilities by optimizing $S$ subject to the constraint that the sum of the probabilities is 1.
             \[
             \vec{\nabla} \left[ S(\{p_i\}) + \lambda \left(1-\sum_i^N p_i \right)
             \right]= 0
@@ -106,6 +108,19 @@
                 \frac{\partial}{\partial p_N} \\
                 \frac{\partial}{\partial \lambda}
             \end{pmatrix}.
+            \]
+            Resulting in $N$ expressions of the form,
+            \[
+            -\log p_i - 1 = \lambda.
+            \]
+            Setting $\lambda = \lambda$,
+            \[
+            -\log p_i -1 = -\log p_j -1 \implies p_i=p_j=p \quad \forall \quad i, j
+            \]
+            
+            and the original constraint,
+            \[
+            \sum_i^N p_i = 1 = p \sum_i^N 1 = 1 \implies p = 1/N
             \]
             The Shannon Entropy is visualized in Figure 1 wherein contours of constant $S$ in a three outcome system are shaded. In this figure, $p_3$ is implicit upon specification of $p_1$ and $p_2$. 
             </p>
@@ -124,27 +139,40 @@
             As we continue to shuffle, we intuitively "lose track" of where a particular card went, and would be equally likely to find it at any location within the deck.
             Figure 2 illustrates this loss of information for a card initially known to located in the middle of the deck, position 50, after shuffling with a side shuffle the indicate number of times.
             After the first shuffle, the PMF contains two peaks corresponding to the top and bottom of the deck in accordance with whether the deck was cut just before or just after the 50th card before beginning the side shuffle, respectively. 
+            <i>
+            Note: in frequency trail plots, each curve is offset by a set amount to give an impression of the progression (or in this case regression) of a distribution with respect to some dependent variable. This means that the absolute "y"-values for two curves with different shading ought not be compared. 
+            </i>
             <figure>
                 <img class="image" src="Images/ProbabilityRedistributionPos50.svg">
                 <figcaption>
-                    Figure 2. 
+                    Figure 2. Frequency trail of the evolution of the PMF of card initially located at the 50th position in the deck for 167 side-shuffles. After 5 shuffles, the PMF is relatively uniform.
                 </figcaption>
             </figure>
-            
-            <div class='horizontal-container'>
-                <div class='horizontal-image'>
+           
+            <figure>
                 <img class="image" src="Images/ProbabilityRedistributionPos1.svg">
-                </div>
-                <div class='horizontal-image'>
+                <figcaption>
+                Figure 3. Frequency trail for a card initial at the 1st position.
+                </figcaption>
+            </figure>
+            <figure>
                 <img class="image" src="Images/ProbabilityRedistributionPos25.svg">
-                </div>
-                <div class='horizontal-image'>
+                <figcaption>
+                Figure 4. Frequency trail for a card initial at the 25th position.
+                </figcaption>
+            </figure>
+            <figure>
                 <img class="image" src="Images/ProbabilityRedistributionPos75.svg">
-                </div>
-                <div class='horizontal-image'>
+                <figcaption>
+                Figure 5. Frequency trail for a card initial at the 75th position.
+                </figcaption>
+            </figure>
+            <figure>
                 <img class="image" src="Images/ProbabilityRedistributionPos100.svg">
-                </div>
-            </div>
+                <figcaption>
+                Figure 6. Frequency trail for a card initial at the 100th position.
+                </figcaption>
+            </figure>
 
             </p>
         </section>
