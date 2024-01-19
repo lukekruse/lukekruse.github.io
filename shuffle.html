@@ -135,7 +135,7 @@
             <p>
             In the context of shuffling a deck of cards, $S$ was used to assess the probability mass function (PMF) of the location of a card within the deck after $x$ shuffles.
             Say, for instance, we know a certain card is on the bottom of the deck. When we shuffle the deck once, we can usually make a decent guess as to where the card is in the new arrangment of cards. That is, the probability that the card is in one location, say in the bottom 10-20 cards is greater than it suddenly having jumped to the top of the deck. 
-            This non-uniform probability mass function is precisely what is captured by $S$. 
+            This non-uniform probability mass function (PMF) is precisely what is captured by $S$. 
             </p>
             <p>
             As we continue to shuffle, we intuitively "lose track" of where a particular card went, and would be equally likely to find it at any location within the deck.
@@ -173,6 +173,24 @@
                 <img class="image" src="Images/ProbabilityRedistributionPos100.svg">
                 <figcaption>
                 Figure 6. Frequency trail for a card initially at the 100th position.
+                </figcaption>
+            </figure>
+            </p>
+            <p>
+            Additionally, the PMF associated with how many cards were in the top pile after cutting the deck in two halves was compared to the established model of Gilber-Shannon-Reeds (Figure 7.). This model predicts the probability of having $k$ cards in the top pile after cutting an $n$-card deck to be, 
+            \[
+            p(k) = 
+            \begin{pmatrix}
+            n\\
+            k
+            \end{pmatrix}
+            2^{-n}.
+            \]
+            Curiously, my data are suggestive of a significantly sharper peaked distribution. To assess the confidence in the distribution of my data, my next step will be to perform bootstrap sampling and obtain error bars for each $p(k)$.
+            <figure>
+                <img class="image" src="Images/cut.svg">
+                <figcaption>
+                Figure 7. Probability of having N cards in the top half of the deck after cutting.
                 </figcaption>
             </figure>
 
