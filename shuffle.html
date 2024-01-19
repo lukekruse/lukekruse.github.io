@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="style.css" >
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Homepage</title>
+        <title>Shuffle Data</title>
         <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
         </script>
         <script>
@@ -24,8 +24,10 @@
             <nav class="nav main-nav">
                 <ul>
                 <li><a href="index.html" >Home</a></li>
-                <li><a href="https://google.com" target="_blank">Google</a></li>
-            </ul>  
+                <!--
+                <li><a href="blog.html">Blog</a></li>
+                --!>
+                </ul>  
             </nav>
             <h1 class="section-header">Card Shuffling</h1>
         </header>
@@ -127,7 +129,7 @@
             <figure>
                 <img class="image" src="Images/trinomialEntropy.svg">
                 <figcaption>
-                    Figure 1. Shannon Entropy for a System with 3 Possible Outcomes. The maximum, occurs, as expected when $p_1 = p_2 = p_3 = \frac{1}{3}$
+                    Figure 1. Shannon Entropy for a System with 3 Possible Outcomes. The maximum occurs, as expected, when $p_1 = p_2 = p_3 = \frac{1}{3}$
                 </figcaption>
             </figure>
             <p>
@@ -140,7 +142,7 @@
             Figure 2 illustrates this loss of information for a card initially known to located in the middle of the deck, position 50, after shuffling with a side shuffle the indicate number of times.
             After the first shuffle, the PMF contains two peaks corresponding to the top and bottom of the deck in accordance with whether the deck was cut just before or just after the 50th card before beginning the side shuffle, respectively. 
             <i>
-            Note: in frequency trail plots, each curve is offset by a set amount to give an impression of the progression (or in this case regression) of a distribution with respect to some dependent variable. This means that the absolute "y"-values for two curves with different shading ought not be compared. 
+            Note: in frequency trail plots, each curve is offset by a set amount to give an impression of the progression (or in this case regression) of a distribution with respect to some dependent variable. This means that the absolute "y"-values for two curves with different shading ought be compared with caution. 
             </i>
             <figure>
                 <img class="image" src="Images/ProbabilityRedistributionPos50.svg">
@@ -148,29 +150,29 @@
                     Figure 2. Frequency trail of the evolution of the PMF of card initially located at the 50th position in the deck for 167 side-shuffles. After 5 shuffles, the PMF is relatively uniform.
                 </figcaption>
             </figure>
-           
+            Figures 3 through 6 show much the same trend, with a marked decay in information on the whereabouts of the initial card.
             <figure>
                 <img class="image" src="Images/ProbabilityRedistributionPos1.svg">
                 <figcaption>
-                Figure 3. Frequency trail for a card initial at the 1st position.
+                Figure 3. Frequency trail for a card initially at the 1st position.
                 </figcaption>
             </figure>
             <figure>
                 <img class="image" src="Images/ProbabilityRedistributionPos25.svg">
                 <figcaption>
-                Figure 4. Frequency trail for a card initial at the 25th position.
+                Figure 4. Frequency trail for a card initially at the 25th position.
                 </figcaption>
             </figure>
             <figure>
                 <img class="image" src="Images/ProbabilityRedistributionPos75.svg">
                 <figcaption>
-                Figure 5. Frequency trail for a card initial at the 75th position.
+                Figure 5. Frequency trail for a card initially at the 75th position.
                 </figcaption>
             </figure>
             <figure>
                 <img class="image" src="Images/ProbabilityRedistributionPos100.svg">
                 <figcaption>
-                Figure 6. Frequency trail for a card initial at the 100th position.
+                Figure 6. Frequency trail for a card initially at the 100th position.
                 </figcaption>
             </figure>
 
