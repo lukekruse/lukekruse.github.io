@@ -7,12 +7,12 @@
 }
 
 html, body {
-    margin: 0;
+    margin: 25;
     padding: 0;
 }
 
 .nav ul {
-    margin: 0;
+    margin: 10;
 }
 
 .nav li {
@@ -80,6 +80,89 @@ figcaption {
 
 
 h1 {
-      color: green;
+      color: white;
 }
+
+.page {
+  font-family: sans-serif;
+  margin: 2rem;
+  background-color: #f9f9f9;
+}
+
+.editor-app {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.editor-app__title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.editor-app__spinner {
+  text-align: center;
+  font-weight: bold;
+  color: #007bff;
+  margin: 1rem 0;
+}
+
+.editor-app__spinner--hidden {
+  display: none;
+}
+
+.editor-app__code {
+  width: 100%;
+  height: 300px;
+}
+.editor-app__controls {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.editor-app__file-input {
+  flex: 1;
+}
+
+.editor-app__run-btn {
+  padding: 0.5rem 1rem;
+  background-color: #28a745;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.editor-app__output {
+  margin-top: 2rem;
+}
+
+.editor-app__output-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.editor-app__output-text {
+  background: #222;
+  color: #eee;
+  padding: 1rem;
+  white-space: pre-wrap;
+  border-radius: 4px;
+}
+
+.editor-app__output-figures {
+  margin-top: 1rem;
+}
+
+.editor-app__figure {
+  max-width: 100%;
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+
 
